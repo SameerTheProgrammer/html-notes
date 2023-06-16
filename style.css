@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    list-style: none;
+    flex-direction: column;
+    background: skyblue;
+}
+
+.div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.grid {
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 27rem);
+    gap: 3.75rem;
+    margin: 4rem;
+}
+
+.grid li {
+    padding: 1.5rem 2rem 2rem;
+    height: 25rem;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.add-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #88ABFF;
+    cursor: pointer;
+
+}
+
+.add-box .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    width: 8rem;
+    font-size: 4rem;
+    border-radius: 50%;
+    border: 2px dashed #88ABFF;
+}
+
+.add-box p {
+    font-weight: 500;
+    margin-top: 2rem;
+    font-size: 1.75rem;
+}
+
+.note-title {
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.note {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.content {
+    line-height: 2.5rem;
+    display: block;
+    color: #575757;
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+}
+
+.detail {
+    height: 80%;
+    overflow-y: auto;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.bottom-content {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #999;
+}
+
+.setting {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    right: 10%;
+    bottom: 35%;
+    z-index: 100;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 0.75rem 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.menu li {
+    list-style: none;
+    padding: 1.5rem 1.5rem;
+    height: 2.5rem;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.menu li:hover{
+    background: #f5f5f5;
+}
+
+.setting.show .menu {
+    transform: scale(1);
+}
+
+.menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu li i {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+
+.detail::-webkit-scrollbar,
+.popup textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.detail:hover::-webkit-scrollbar,
+.popup textarea:hover::-webkit-scrollbar {
+    width: 5px;
+}
+
+.detail:hover::-webkit-scrollbar-track,
+.popup textarea:hover::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+
+.detail:hover::-webkit-scrollbar-thumb,
+.popup textarea:hover::-webkit-scrollbar-thumb {
+    background: #e6e6e6;
+    border-radius: 25px;
+}
+
+
+/*===============================
+========POPUP====================
+=================================*/
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 40rem;
+    width: 100%;
+
+}
+
+.popup-content {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.popup-content header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.popup-content header p {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.popup-content header i {
+    color: #8b8989;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.popup-content form {
+    padding: 2rem 2.5rem 3rem;
+}
+
+.row {
+    margin-bottom: 2rem;
+}
+
+.row label {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+form :where(input, textarea) {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 0 1.5rem;
+    height: 5rem;
+    font-size: 1.75rem;
+}
+
+.row textarea {
+    height: 15rem;
+    resize: none;
+    padding: 0.8rem 1.5rem;
+}
+
+form :where(input, textarea):focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.11);
+}
+
+form button {
+    width: 100%;
+    height: 5rem;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: 4px;
+    background: #6A93F8;
+}
+
+.popup-box,
+.popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box.show .popup {
+    transform: translate(-50%, -50%) scale(1);
+}
